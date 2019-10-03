@@ -53,9 +53,9 @@ export class TicketService {
   queryMyTickets(): Observable<EntityArrayResponseType> {
     const options = createRequestOption();
     return this.http
-        .get<ITicket[]>(this.resourceUrl + '/self', { params: options, observe: 'response' })
-        .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
-}
+      .get<ITicket[]>(this.resourceUrl + '/self', { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
 
   protected convertDateFromClient(ticket: ITicket): ITicket {
     const copy: ITicket = Object.assign({}, ticket, {
